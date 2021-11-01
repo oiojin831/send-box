@@ -2,9 +2,20 @@ var express = require('express');
 var app = express();
 const PORT = 8080;
 
-// respond with "hello world" when a GET request is made to the homepage
+const products = [
+  {
+    name: 'diablo',
+    price: 30000,
+    year: 2002,
+  },
+];
+
 app.get('/', function (req, res) {
   res.send('hello world');
+});
+
+app.get('/products', function (req, res) {
+  res.send(products);
 });
 
 app.listen(PORT, () => {
