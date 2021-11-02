@@ -4,8 +4,21 @@ const PORT = 8080;
 
 const products = [
   {
+    id: 1,
     name: 'diablo',
     price: 30000,
+    year: 2002,
+  },
+  {
+    id: 2,
+    name: 'diablo2',
+    price: 40000,
+    year: 2002,
+  },
+  {
+    id: 3,
+    name: 'diablo3',
+    price: 50000,
     year: 2002,
   },
 ];
