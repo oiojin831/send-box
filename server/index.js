@@ -1,5 +1,8 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
 const PORT = 8080;
 
 const products = [
@@ -29,6 +32,10 @@ app.get('/', function (req, res) {
 
 app.get('/products', function (req, res) {
   res.send(products);
+});
+
+app.get('/products/1', function (req, res) {
+  res.send(products[1]);
 });
 
 app.listen(PORT, () => {
