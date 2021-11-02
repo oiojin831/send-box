@@ -1,8 +1,9 @@
-1. package.json 에 npm을 통해서 node를 실행시킬수있도록 "script" 키를 추가하기
-   a. "server": "node index.js",
-2. server directory에서
-   a. npm run server
-   b. 이제는 위 명령어로 서버를 킬수있다
-3. index.js에 product array를 하나 추가하고 array안에 product하나를 넣고 get products api를 만든다.
-   a. 코드를 변경할떄마다 server를 껏다가 켜야한다.
-   b. /products api를 확인해보다.
+# client만들어 보자.
+
+1. server에서는 npm init으로 node 프로젝트를 만들었지만
+   a. node project를 만든다는건 package.json을 만드는 것과 같다.
+2. 하지만 client에서는 create-react-app로 package.json을 자동으로 구성해주도록하자.
+   a. create-react-app을 사용하면 react도 설치되지만 webpack설정도 자동으로 해준다.
+3. root directory로 돌아가서
+   a. npx create-react-app client
+   b. 로 프로젝트를 만든다.
