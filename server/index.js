@@ -35,7 +35,7 @@ app.get('/products', function (req, res) {
 });
 
 app.get('/products/1', function (req, res) {
-  res.send(products[1]);
+  res.send(products[0]);
 });
 
 app.listen(PORT, () => {

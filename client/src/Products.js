@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function Product() {
+function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ function Product() {
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
     <div>
@@ -26,4 +26,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default Products;
