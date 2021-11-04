@@ -1,6 +1,3 @@
-1. client에 react router 설정하기
-   a. npm install react-router@next react-router-dom@next
-   b. v6를 사용할거다.
-2. useEffect의 버그도 코친다.
-   a. infinite loop에 빠졌다.
-3. useParams를 이용해서 id
+1. Product에 관한 CRUD를 만들자.
+2. Server에 Product CRUD만들기.
+3. insomnia로 테스트를 해보자.
