@@ -36,9 +36,12 @@ app.get('/products', function (req, res) {
 });
 
 app.get('/products/:id', function (req, res) {
-  console.log(req.params);
   const id = req.params.id;
-  if (products[id]) {
+  console.log(typeof id);
+  console.log(parseInt(id));
+  const int_id = parseInt(id);
+  console.log(products.find((obj) => obj.id === int_id));
+  if (products.find((obj) => obj.id === int_id)) {
     res.send(products[`${req.params.id}`]);
   } else {
     res.send({ message: `id ${id} is not existed` });

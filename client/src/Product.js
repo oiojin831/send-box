@@ -14,9 +14,10 @@ function Product() {
 
   return (
     <div key={`${product.id}-${product.name}`}>
-      <div>{product.name}</div>
-      <div>{product.price}</div>
-      <div>{product.year}</div>
+      <div>id: {product.id}</div>
+      <div>name: {product.name}</div>
+      <div>price: {product.price}</div>
+      <div>year: {product.year}</div>
       <br />
     </div>
   );
