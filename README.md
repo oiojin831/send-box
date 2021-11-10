@@ -1,5 +1,11 @@
-하나의 product를 가져오는거 코드 정리하기
+Product server CRUD API Array.find를 이용하도록 정리하기.
 
-1. product의 array의 index와 api의 id 혹은 array안에서의 object의 id와 불일치가 있어서
-2. 혼동이 올수있다.
-3. array의 index에 의존하지말고 object의 id를 이용하자.
+1. get product is 에 버그가 있다
+2. object의 id와 index가 다르기 때문에
+   a. update나 delete는 index를 구해서 사용해야된다.
+3. insomnia로 테스트후
+   a. delete를 했을경우 id와 index가 불일치하는거 확인
+   b. update잘되는지 확인
+   c. 새로운 데이터 추가 확인
+   d. products list 확인
+   e. product 한개 확인

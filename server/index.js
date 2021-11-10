@@ -36,13 +36,9 @@ app.get('/products', function (req, res) {
 });
 
 app.get('/products/:id', function (req, res) {
-  const id = req.params.id;
-  console.log(typeof id);
-  console.log(parseInt(id));
-  const int_id = parseInt(id);
-  console.log(products.find((obj) => obj.id === int_id));
-  if (products.find((obj) => obj.id === int_id)) {
-    res.send(products[`${req.params.id}`]);
+  const id = parseInt(req.params.id);
+  if (products.find((obj) => obj.id === id)) {
+    res.send(products.find((obj) => obj.id === id));
   } else {
     res.send({ message: `id ${id} is not existed` });
   }
@@ -62,10 +58,11 @@ app.post('/products', function (req, res) {
 });
 
 app.put('/products/:id', (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const { name, price, year } = req.body;
-  if (products[id]) {
-    products[id] = {
+  if (products.find((obj) => obj.id === id)) {
+    const idx = products.findIndex((obj) => obj.id === id);
+    products[idx] = {
       id,
       name,
       price,
@@ -78,9 +75,10 @@ app.put('/products/:id', (req, res) => {
 });
 
 app.delete('/products/:id', (req, res) => {
-  const id = req.params.id;
-  if (products[id]) {
-    products.splice(id, 1);
+  const id = parseInt(req.params.id);
+  if (products.find((obj) => obj.id === id)) {
+    const idx = products.findIndex((obj) => obj.id === id);
+    products.splice(idx, 1);
     res.send({ message: `${id}: is deleted` });
   } else {
     res.send({ message: `id ${id} is not existed` });
