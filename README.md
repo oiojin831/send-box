@@ -1,11 +1,7 @@
-Product client CRUD pages 만들기
+client 와 server 동시에 관리하기.
 
-1. sever에서 id를 return 하게 바꾸기
-   a. post, put, delete
-2. /products -> list page
-   a. edit,delete 버튼
-3. /products/:id -> detail page
-4. /products/new -> new page
-   a. form
-5. /products/edit -> edit page
-   a. form이 채워져있어야함
+1. root directory로 이동
+2. package.json 파일 생성하기
+3. root directory에 .gitignore 추가하기
+4. 여러개의 root directory에서 npm script를 실행시키게 해주는 concurrently 설치하기
+   a. npm install concurrently
