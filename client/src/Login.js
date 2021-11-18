@@ -1,15 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useLocalStorage from './utils/useLocalStorage';
 
 const Login = () => {
   const [user, setUser] = useState();
-  const [userInfo, setUserInfo] = useState(() =>
-    JSON.parse(window.localStorage.getItem('user'))
-  );
+  const [userInfo, setUserInfo] = useLocalStorage('user');
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    window.localStorage.setItem('user', JSON.stringify(userInfo));
-  }, [userInfo]);
 
   const clickHandler = () => {
     fetch('http://localhost:8080/users/', {
