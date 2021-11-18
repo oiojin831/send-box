@@ -4,16 +4,20 @@ import Product from './Product';
 import NewProduct from './NewProduct';
 import EditProduct from './EditProduct';
 import Landing from './Landing';
+import Login from './Login';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/products/new" element={<NewProduct />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/products/:id" element={<Product />} />
-      <Route path="/products/:id/edit" element={<EditProduct />} />
-    </Routes>
+    <>
+      <Login />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/products/new" element={<NewProduct />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Product />} />
+        <Route path="/products/:id/edit" element={<EditProduct />} />
+      </Routes>
+    </>
   );
 }
 

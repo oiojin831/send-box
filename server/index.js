@@ -27,6 +27,15 @@ const products = [
   },
 ];
 
+const users = [
+  {
+    id: 1,
+    nickname: 'oiojin831',
+    name: 'eung jin lee',
+    email: 'oiojin831@gmail.com',
+  },
+];
+
 app.get('/', function (req, res) {
   res.send('hello world');
 });
@@ -82,6 +91,19 @@ app.delete('/products/:id', (req, res) => {
     res.send({ id });
   } else {
     res.send({ message: `id ${id} is not existed` });
+  }
+});
+
+app.post('/users', (req, res) => {
+  console.log('rea', req.body);
+  const { nickname } = req.body;
+  if (users.find((obj) => obj.nickname === nickname)) {
+    const idx = users.findIndex((obj) => obj.nickname === nickname);
+    console.log(idx);
+    console.log(users[idx]);
+    res.send(users[idx]);
+  } else {
+    res.status(401).send({ message: 'Passwords do not match' });
   }
 });
 
