@@ -7,6 +7,10 @@ const Login = () => {
   );
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    window.localStorage.setItem('user', JSON.stringify(userInfo));
+  }, [userInfo]);
+
   const clickHandler = () => {
     fetch('http://localhost:8080/users/', {
       method: 'POST',
@@ -16,7 +20,6 @@ const Login = () => {
       },
     })
       .then((res) => {
-        console.log(res);
         if (!res.ok) {
           //const json = await res.json();
           //console.log(json);
@@ -25,12 +28,9 @@ const Login = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        window.localStorage.setItem('user', JSON.stringify(data));
         setUserInfo(data);
       })
       .catch((error) => {
-        console.dir(error);
         setError(error.message);
       });
   };
