@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Login = () => {
-  const [user, setUser] = useState('');
-  const [userInfo, setUserInfo] = useState(null);
+  const [user, setUser] = useState();
+  const [userInfo, setUserInfo] = useState(() =>
+    JSON.parse(window.localStorage.getItem('user'))
+  );
   const [error, setError] = useState(null);
+
   const clickHandler = () => {
     fetch('http://localhost:8080/users/', {
       method: 'POST',
@@ -23,6 +26,7 @@ const Login = () => {
       })
       .then((data) => {
         console.log(data);
+        window.localStorage.setItem('user', JSON.stringify(data));
         setUserInfo(data);
       })
       .catch((error) => {
