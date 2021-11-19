@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import useLocalStorage from './utils/useLocalStorage';
 
-const Login = () => {
+const Login = ({ setUserInfo, userInfo }) => {
   const [user, setUser] = useState();
-  const [userInfo, setUserInfo] = useLocalStorage('user');
   const [error, setError] = useState(null);
 
   const clickHandler = () => {

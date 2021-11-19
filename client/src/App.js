@@ -4,12 +4,12 @@ import Product from './Product';
 import NewProduct from './NewProduct';
 import EditProduct from './EditProduct';
 import Landing from './Landing';
-import Login from './Login';
+import NavigationBar from './NavigationBar';
 
 function App() {
   return (
     <>
-      <Login />
+      <NavigationBar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/products/new" element={<NewProduct />} />
