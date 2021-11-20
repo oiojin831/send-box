@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Login = ({ setUserInfo, userInfo }) => {
+const Login = ({ setUserInfo }) => {
   const [user, setUser] = useState();
   const [error, setError] = useState(null);
 
@@ -27,15 +27,6 @@ const Login = ({ setUserInfo, userInfo }) => {
         setError(error.message);
       });
   };
-  if (userInfo) {
-    return (
-      <div>
-        <span>{userInfo.id}</span>
-        <span> : </span>
-        <span>{userInfo.nickname}</span>
-      </div>
-    );
-  }
   return (
     <>
       <div>

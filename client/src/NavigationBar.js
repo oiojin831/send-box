@@ -8,9 +8,16 @@ const NavigationBar = () => {
   return (
     <div>
       {user ? (
-        <Logout setUserInfo={setUser} />
+        <>
+          <div>
+            <span>{user.id}</span>
+            <span> : </span>
+            <span>{user.nickname}</span>
+          </div>
+          <Logout setUserInfo={setUser} />
+        </>
       ) : (
-        <Login userInfo={user} setUserInfo={setUser} />
+        <Login setUserInfo={setUser} />
       )}
     </div>
   );
