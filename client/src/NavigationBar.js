@@ -1,5 +1,6 @@
 import Login from './Login';
 import Logout from './Logout';
+import Signup from './Signup';
 import useLocalStorage from './utils/useLocalStorage';
 
 const NavigationBar = () => {
@@ -17,7 +18,10 @@ const NavigationBar = () => {
           <Logout setUserInfo={setUser} />
         </>
       ) : (
-        <Login setUserInfo={setUser} />
+        <>
+          <Signup setUserInfo={setUser} />
+          <Login setUserInfo={setUser} />
+        </>
       )}
     </div>
   );
