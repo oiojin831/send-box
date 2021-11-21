@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-const Landing = () => {
+const Landing = ({ user }) => {
   const navigate = useNavigate();
+
   return (
     <div>
       <div>hello world</div>

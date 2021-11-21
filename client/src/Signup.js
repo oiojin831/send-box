@@ -40,6 +40,7 @@ const Signup = ({ setUserInfo }) => {
   return (
     <>
       <div>
+        <span>가입하기</span>
         <input
           value={newUser.nickname}
           name="nickname"

@@ -35,27 +35,29 @@ function NewProduct() {
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        name="name"
-        value={values.name}
-        onChange={handleChange}
-      />
-      <input
-        type="number"
-        name="price"
-        value={values.price}
-        onChange={handleChange}
-      />
-      <input
-        type="number"
-        name="year"
-        value={values.year}
-        onChange={handleChange}
-      />
-      <button onClick={handleSubmit}>submit</button>
-    </form>
+    <div>
+      <form>
+        <input
+          type="text"
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="price"
+          value={values.price}
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="year"
+          value={values.year}
+          onChange={handleChange}
+        />
+        <button onClick={handleSubmit}>submit</button>
+      </form>
+    </div>
   );
 }
 
