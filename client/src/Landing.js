@@ -1,7 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 const Landing = ({ user }) => {
   const navigate = useNavigate();
-
+  if (user) {
+    return <Navigate to="/dashboard" replace={true} />;
+  }
   return (
     <div>
       <div>hello world</div>

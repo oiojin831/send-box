@@ -1,10 +1,11 @@
-- user 정보를 최상위로 lifting up 하기
-
-- React에서는 state가 한방향 (부모 component에서 자식 component)로만 흐르므로
-- 프로그래 전반에 걸쳐서 써야하는 user정보를 나눠 쓰기위해서는 user state가 App component에 있어야한다.
-- 자식 component에 있던 user state를
-- 최상위 부모 component에 만들고 관리하면서 user state와 state updater 함수를
-- 다시 자식으로 내려주는 방식을 state를 lift up(들어 올린다) 라고 표현한다.
-- Navigation에 잇던 user state를 App component로 올려주자.
-- user 정보가 있어야만(로그인이 되어있어야만) 접근이 가능한 Dashboard page를 만들어주자.
-  - 아무것도 없고 dashboard라고만 나오는 page면 지금은 충분하다.
+- user의 로그인 여부에 따라 redirect하기
+  - useNavigate를 이용해서 navigate을 할수있다.
+  - user가 없으면 landing page로
+  - user가 있다면 dashboard page로
+  - react router에 useNavigate는 hook이 있고
+  - 이걸 감싼 component가 Navigate가 있따.
+  - navigate는 side effect 이므로
+    - useEffect를 사용해야된다
+    - useCallback을 사용한다.
+    - 근데 아직 useCallback을 안배웠으니
+  - Navigate component로 하면 편하게 할수있다.
