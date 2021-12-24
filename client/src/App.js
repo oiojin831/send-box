@@ -1,12 +1,9 @@
 import { createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Products from './Products';
-import Product from './Product';
-import NewProduct from './NewProduct';
-import EditProduct from './EditProduct';
-import Landing from './Landing';
-import Dashboard from './Dashboard';
-import NavigationBar from './NavigationBar';
+import { Product, Products, NewProduct, EditProduct } from './pages/products';
+import Landing from './pages/Landing';
+import Dashboard from './pages/Dashboard';
+import NavigationBar from './componentes/layouts/NavigationBar';
 import useLocalStorage from './utils/useLocalStorage';
 
 export const UserContext = createContext();

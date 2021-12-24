@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from './App';
+import { UserContext } from '../App';
 import { useNavigate, Navigate } from 'react-router-dom';
 
 const Landing = () => {
