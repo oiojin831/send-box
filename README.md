@@ -1,5 +1,7 @@
-- client 코드 구조화해서 정리하기
-  - client에서는 module을 사용하는 방식을 "ESmodule"을 사용하고있다.
-  - server에서 사용한 request 함수와 module과 조금 다른걸 볼수있다. (commonjs 이라고 부른다.)
-  - ES Module은 import 와 export 라는 키워드를 사용한다.
-  - https://www.samanthaming.com/tidbits/79-module-cheatsheet/
+- server 코드도 esm으로 변경하기
+- 최근에는 nodejs에서도 esm (es module)을 지원해서 server도 변경해보자.
+- server의 package.json에
+  - "type": "module"을 추가해주자.
+- client에서는 webpack을 사용해서 import 할때 파일 확장자 없이 파일 이름만 써도 가능하지만
+- 지금 우리의 server에서는 webpack을 사용하지 않아서 .js의 확장자를 붙여줘야한다.
+- 기존의 commonjs에서는 확장자없이 기본적으로 사용이 가능했다.

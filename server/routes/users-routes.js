@@ -1,3 +1,5 @@
+import express from 'express';
+
 const users = [
   {
     id: 1,
@@ -7,7 +9,6 @@ const users = [
   },
 ];
 
-const express = require('express');
 const router = express.Router();
 
 router.post('/users', (req, res) => {
@@ -31,4 +32,4 @@ router.post('/users/new', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

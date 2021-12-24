@@ -1,3 +1,5 @@
+import express from 'express';
+
 const products = [
   {
     id: 1,
@@ -19,7 +21,6 @@ const products = [
   },
 ];
 
-const express = require('express');
 const router = express.Router();
 
 router.get('/products', function (req, res) {
@@ -76,4 +77,4 @@ router.delete('/products/:id', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
