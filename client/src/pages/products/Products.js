@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function Products() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/products')
+    fetch(`${SERVER_URL}/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:8080/products/${id}`, {
+    fetch(`${SERVER_URL}/products/${id}`, {
       method: 'delete',
     })
       .then((res) => res.json())

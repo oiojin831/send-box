@@ -5,7 +5,7 @@ const Login = ({ setUserInfo }) => {
   const [error, setError] = useState(null);
 
   const clickHandler = () => {
-    fetch('http://localhost:8080/users/', {
+    fetch('SERVER_URL/users/', {
       method: 'POST',
       body: JSON.stringify({ nickname: user }), // data can be `string` or {object}!
       headers: {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function Product() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${id}`)
+    fetch(`${SERVER_URL}/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));

@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": 2,
-      "name": "adfaf",
-      "price": 0,
-      "year": 0
-    },
-    {
       "id": 3,
       "name": "aa",
       "price": "78777",
