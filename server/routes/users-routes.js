@@ -1,15 +1,9 @@
 import express from 'express';
-
-const users = [
-  {
-    id: 1,
-    nickname: 'oiojin831',
-    name: 'eung jin lee',
-    email: 'oiojin831@gmail.com',
-  },
-];
+import { db } from '../db.js';
 
 const router = express.Router();
+
+const { users } = db.data;
 
 router.post('/users', (req, res) => {
   const { nickname } = req.body;

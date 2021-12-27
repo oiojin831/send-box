@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "diablo2",
+      "price": 50000,
+      "year": 2003
+    },
+    {
+      "id": 1,
+      "name": "ajaj",
+      "price": "1000",
+      "year": "1000"
+    },
+    {
+      "id": 2,
+      "name": "adfaf",
+      "price": 0,
+      "year": 0
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nickname": "oiojin831",
+      "name": "eung jin lee",
+      "email": "oiojin831@gmail.com"
+    }
+  ]
+}
