@@ -10,4 +10,5 @@ const db = new Low(adapter);
 
 await db.read();
 db.data = db.data || { products: [] };
+
 export { db };

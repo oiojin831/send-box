@@ -1,8 +1,8 @@
 import express from 'express';
 import { db } from '../db.js';
 
-const { products } = db.data;
 const router = express.Router();
+const { products } = db.data;
 
 router.get('/products', function (req, res) {
   res.send(products);
@@ -10,8 +10,9 @@ router.get('/products', function (req, res) {
 
 router.get('/products/:id', function (req, res) {
   const id = parseInt(req.params.id);
-  if (products.find((obj) => obj.id === id)) {
-    res.send(products.find((obj) => obj.id === id));
+  const data = products.find((p) => p.id === id);
+  if (data) {
+    res.send(data);
   } else {
     res.send({ message: `id ${id} is not existed` });
   }
@@ -19,7 +20,7 @@ router.get('/products/:id', function (req, res) {
 
 router.post('/products', function (req, res) {
   const { name, price, year } = req.body;
-  const id = products.length;
+  const id = Math.max(...products.map((p) => p.id)) + 1;
   const newProduct = {
     id,
     name,
@@ -34,8 +35,9 @@ router.post('/products', function (req, res) {
 router.put('/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const { name, price, year } = req.body;
-  if (products.find((obj) => obj.id === id)) {
-    const idx = products.findIndex((obj) => obj.id === id);
+  const data = products.find((p) => p.id === id);
+  if (data) {
+    const idx = products.findIndex((p) => p.id === id);
     products[idx] = {
       id,
       name,
@@ -51,8 +53,9 @@ router.put('/products/:id', (req, res) => {
 
 router.delete('/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  if (products.find((obj) => obj.id === id)) {
-    const idx = products.findIndex((obj) => obj.id === id);
+  const data = products.find((p) => p.id === id);
+  if (data) {
+    const idx = products.findIndex((p) => p.id === id);
     products.splice(idx, 1);
     db.write();
     res.send({ id });
