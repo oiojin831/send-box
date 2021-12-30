@@ -16,6 +16,16 @@ router.post('/users', (req, res) => {
   }
 });
 
+router.get('/users/:id', function (req, res) {
+  const id = parseInt(req.params.id);
+  const data = users.find((o) => o.id === id);
+  if (data) {
+    res.send(data);
+  } else {
+    res.send({ message: `id ${id} is not existed` });
+  }
+});
+
 router.post('/users/new', (req, res) => {
   const newUser = req.body;
   const data = users.find((u) => u.nickname === newUser.nickname);

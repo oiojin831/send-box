@@ -1,11 +1,12 @@
 import { useState } from 'react';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Login = ({ setUserInfo }) => {
   const [user, setUser] = useState();
   const [error, setError] = useState(null);
 
   const clickHandler = () => {
-    fetch('SERVER_URL/users/', {
+    fetch(`${SERVER_URL}/users/`, {
       method: 'POST',
       body: JSON.stringify({ nickname: user }), // data can be `string` or {object}!
       headers: {

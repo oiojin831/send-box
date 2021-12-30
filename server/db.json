@@ -2,9 +2,9 @@
   "products": [
     {
       "id": 3,
-      "name": "aa",
-      "price": "78777",
-      "year": "77"
+      "name": "diablo",
+      "price": "60000",
+      "year": "2021"
     }
   ],
   "users": [
@@ -13,78 +13,14 @@
       "nickname": "oiojin831",
       "name": "eung jin lee",
       "email": "oiojin831@gmail.com"
-    },
+    }
+  ],
+  "orders": [
     {
-      "nickname": "adsfafa",
-      "name": "fsdafsaf",
-      "email": "adsfa",
-      "id": 2
-    },
-    {
-      "nickname": "eungga",
-      "name": "ejlee",
-      "email": "oie@gmail.com",
-      "id": 3
-    },
-    {
-      "nickname": "eunggaa",
-      "name": "ejlee",
-      "email": "oie@gmail.com",
-      "id": 4
-    },
-    {
-      "nickname": "eunggaa2",
-      "name": "ejlee",
-      "email": "oie@gmail.com",
-      "id": 5
-    },
-    {
-      "nickname": "adfass",
-      "name": "aa",
-      "email": "a",
-      "id": 6
-    },
-    {
-      "nickname": "adfass2",
-      "name": "aa",
-      "email": "a",
-      "id": 7
-    },
-    {
-      "nickname": "afdaf21",
-      "name": "sd",
-      "email": "d",
-      "id": 8
-    },
-    {
-      "nickname": "afdaf2112",
-      "name": "sd",
-      "email": "d",
-      "id": 9
-    },
-    {
-      "nickname": "dfasf",
-      "name": "22",
-      "email": "22",
-      "id": 10
-    },
-    {
-      "nickname": "af222",
-      "name": "2",
-      "email": "2",
-      "id": 11
-    },
-    {
-      "nickname": "1133f",
-      "name": "d",
-      "email": "d",
-      "id": 12
-    },
-    {
-      "nickname": "fad2",
-      "name": "fsfd",
-      "email": "s",
-      "id": 13
+      "id": 1,
+      "sellerId": 1,
+      "buyerId": null,
+      "productId": 3
     }
   ]
 }

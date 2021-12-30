@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { db } from './db.js';
 import productRoute from './routes/products-routes.js';
+import orderRoute from './routes/orders-routes.js';
 import userRoute from './routes/users-routes.js';
 dotenv.config();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(productRoute);
+app.use(orderRoute);
 app.use(userRoute);
 
 app.get('/', function (req, res) {
