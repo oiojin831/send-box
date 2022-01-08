@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiClient } from '../../utils/api-client';
+
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function Products() {
@@ -7,8 +9,7 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`${SERVER_URL}/products`)
-      .then((res) => res.json())
+    apiClient(`products`)
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+import { apiClient } from '../../utils/api-client';
 
 function Orders() {
   const [status, setStatus] = useState('loading');
@@ -11,8 +10,7 @@ function Orders() {
 
   useEffect(() => {
     setStatus('loading');
-    fetch(`${SERVER_URL}/orders`)
-      .then((res) => res.json())
+    apiClient(`orders`)
       .then((data) => {
         console.log(data);
         setOrders(data);

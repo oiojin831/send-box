@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+import { apiClient } from '../../utils/api-client';
 
 function Product() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`${SERVER_URL}/products/${id}`)
-      .then((res) => res.json())
+    apiClient(`products/${id}`)
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));
   }, [id]);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+import { apiClient } from '../../utils/api-client';
 
 function Order() {
   const [status, setStatus] = useState('loading');
@@ -14,8 +14,7 @@ function Order() {
     const fetchData = async () => {
       try {
         setStatus('loading');
-        const orderRes = await fetch(`${SERVER_URL}/orders/${id}`);
-        const order = await orderRes.json();
+        const order = await apiClient(`orders/${id}`);
         setOrder(order);
         setStatus('success');
       } catch (err) {

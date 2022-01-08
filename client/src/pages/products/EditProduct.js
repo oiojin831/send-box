@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { apiClient } from '../../utils/api-client';
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function EditProduct() {
@@ -12,8 +12,7 @@ function EditProduct() {
   });
   const { id } = useParams();
   useEffect(() => {
-    fetch(`${SERVER_URL}/products/${id}`)
-      .then((res) => res.json())
+    apiClient(`products/${id}`)
       .then((data) => setValues(data))
       .catch((err) => console.log(err));
   }, [id]);
