@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiClient } from '../../utils/api-client';
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
 function Products() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);

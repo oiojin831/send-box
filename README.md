@@ -1,3 +1,19 @@
-- fetching util 범용 적으로 변경하기 (POST, DELETE 등등)
-  - fetch에서 option으로 줬던거 처럼 option으로 줄수있게 변경
-  - function의 default parameter(기본값 매개변수)를 사용하면됨
+- 연결된 데이터로 인한 에러 확인하기
+  - product의 delete로 order에서 사용하고 있는 product를 지운다면
+    - order page를 들어갈려고 하면 에러 메시지가 나온다.
+    - 서버에 에러가 날수있지만
+      - 서버에서는 그냥 product 없이 데이터를 내려 보내줬다.
+    - client에서는 데이터가 이쁘게 잘 올거라는 가정으로 코드를 짯기 때문에 엡이 crash를한다.
+      - run time error 라고 한다.
+      - typed 언어면 이런점들을 미리 잡는다.
+    - 항상 얘기치 못한 상황에 대한 대처를 해야한다.
+  - product가 없는거니까 ?(Optional chaining) 혹은 &&(short circuit)을써서 undefined일경우 crash되지않게만 하는 방법도 있을수있다.
+    - 만약 product가 의도적으로 없는거면 사용해도 좋지만
+    - 그게 아니라면 서버에서 데이터를 잘못보내준건데 알방법이 없다.
+  - 그럼 웹싸이트가 crash하게 둬야하나?
+    - ErrorBoundary라는걸 사용해서 runtime 에러가 낫을때 ui에 그부분만 에러 메세지를 띄울수도있다.
+      - 이건 나중에 하도록하자
+    - 또는 crash하면 개발자에게 노티가 가게 설정할수도있다
+      - 이것도 나중에 하자.
+  - 그럼 일단 ?로 임시 방어를 해놓고 다음 commit에서 서버를 고치도록 해보자.
+    러

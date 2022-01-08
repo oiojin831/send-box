@@ -29,10 +29,10 @@ function Orders() {
           return (
             <div key={`${order.id}`}>
               <div>{order.id}</div>
-              <div>product name: {order.product.name}</div>
-              <div>price: {order.product.price}</div>
-              <div>seller nickname: {order.seller.nickname}</div>
-              <div>seller name: {order.seller.nickname}</div>
+              <div>product name: {order.product?.name}</div>
+              <div>price: {order.product?.price}</div>
+              <div>seller nickname: {order.seller?.nickname}</div>
+              <div>seller name: {order.seller?.nickname}</div>
               <button onClick={() => console.log('not implemented yet')}>
                 edit
               </button>
