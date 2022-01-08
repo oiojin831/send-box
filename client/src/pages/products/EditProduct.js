@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiClient } from '../../utils/api-client';
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function EditProduct() {
   const navigate = useNavigate();
@@ -28,18 +27,15 @@ function EditProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${SERVER_URL}/${id}`, {
+    apiClient(`products/${id}`, {
       method: 'PUT',
       body: JSON.stringify(values), // data can be `string` or {object}!
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        navigate(`/products/${data.id}`);
-      });
+    }).then((data) => {
+      navigate(`/products/${data.id}`);
+    });
   };
 
   return (

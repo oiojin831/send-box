@@ -15,17 +15,12 @@ function Products() {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`${SERVER_URL}/products/${id}`, {
-      method: 'delete',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const removeProducts = products.filter(
-          (product) => product.id !== data.id
-        );
-        setProducts(removeProducts);
-      });
+    apiClient(`products/${id}`, { method: 'delete' }).then((data) => {
+      const removeProducts = products.filter(
+        (product) => product.id !== data.id
+      );
+      setProducts(removeProducts);
+    });
   };
 
   return (

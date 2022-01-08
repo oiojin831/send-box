@@ -1,10 +1,3 @@
-- fetching util 만들기
-  - fetch의 기본동작인 "GET method"만 적용되는 data를 서버에서 가져와서 json데이터를 js데이터로 만들어주는 함수를 만들어보자.
-
-```
-apiClient(`products/${id}`)
-  .then((data) => setProduct(data))
-  .catch((err) => console.log(err));
-```
-
-- Product page에서 위와 같은 코드로 사용할수있게 함수를 만들어보자.
+- fetching util 범용 적으로 변경하기 (POST, DELETE 등등)
+  - fetch에서 option으로 줬던거 처럼 option으로 줄수있게 변경
+  - function의 default parameter(기본값 매개변수)를 사용하면됨

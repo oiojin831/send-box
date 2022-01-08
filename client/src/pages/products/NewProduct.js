@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+import { apiClient } from '../../utils/api-client';
 
 function NewProduct() {
   const navigate = useNavigate();
@@ -21,18 +21,16 @@ function NewProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${SERVER_URL}/products/`, {
+    apiClient(`products`, {
       method: 'POST',
       body: JSON.stringify(values), // data can be `string` or {object}!
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        navigate(`/products/${data.id}`);
-      });
+    }).then((data) => {
+      console.log(data);
+      navigate(`/products/${data.id}`);
+    });
   };
 
   return (

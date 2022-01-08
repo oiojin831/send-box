@@ -1,16 +1,16 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "diablo2",
-      "price": "30000",
-      "year": "2002"
-    },
-    {
       "id": 3,
       "name": "diablo",
       "price": "60000",
       "year": "2021"
+    },
+    {
+      "id": 4,
+      "name": "dia3",
+      "price": "20000",
+      "year": "2002"
     }
   ],
   "users": [
