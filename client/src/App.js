@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Product, Products, NewProduct, EditProduct } from './pages/products';
-import { Order } from './pages/orders';
+import { Order, Orders } from './pages/orders';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import NavigationBar from './componentes/layouts/NavigationBar';
@@ -26,6 +26,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/products/:id/edit" element={<EditProduct />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/orders/:id" element={<Order />} />
       </Routes>
     </UserProvider>

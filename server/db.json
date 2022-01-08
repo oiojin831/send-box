@@ -1,6 +1,12 @@
 {
   "products": [
     {
+      "id": 1,
+      "name": "diablo2",
+      "price": "30000",
+      "year": "2002"
+    },
+    {
       "id": 3,
       "name": "diablo",
       "price": "60000",
@@ -13,6 +19,12 @@
       "nickname": "oiojin831",
       "name": "eung jin lee",
       "email": "oiojin831@gmail.com"
+    },
+    {
+      "id": 2,
+      "nickname": "corzej",
+      "name": "ej  lee",
+      "email": "corzej@gmail.com"
     }
   ],
   "orders": [
@@ -21,6 +33,12 @@
       "sellerId": 1,
       "buyerId": null,
       "productId": 3
+    },
+    {
+      "id": 2,
+      "sellerId": 2,
+      "buyerId": null,
+      "productId": 1
     }
   ]
 }
