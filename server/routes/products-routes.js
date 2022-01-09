@@ -2,7 +2,7 @@ import express from 'express';
 import { db } from '../db.js';
 
 const router = express.Router();
-const { products } = db.data;
+const { products, orders } = db.data;
 
 router.get('/products', function (req, res) {
   res.send(products);
@@ -53,8 +53,13 @@ router.put('/products/:id', (req, res) => {
 
 router.delete('/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
+  const isProductUsed = orders.some((o) => o.productId === id);
   const data = products.find((p) => p.id === id);
-  if (data) {
+  if (isProductUsed) {
+    res
+      .status(409)
+      .send({ errors: [{ message: `Unable to delete. Refered somewhere.` }] });
+  } else if (data) {
     const idx = products.findIndex((p) => p.id === id);
     products.splice(idx, 1);
     db.write();

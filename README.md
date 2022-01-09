@@ -1,19 +1,24 @@
-- 연결된 데이터로 인한 에러 확인하기
-  - product의 delete로 order에서 사용하고 있는 product를 지운다면
-    - order page를 들어갈려고 하면 에러 메시지가 나온다.
-    - 서버에 에러가 날수있지만
-      - 서버에서는 그냥 product 없이 데이터를 내려 보내줬다.
-    - client에서는 데이터가 이쁘게 잘 올거라는 가정으로 코드를 짯기 때문에 엡이 crash를한다.
-      - run time error 라고 한다.
-      - typed 언어면 이런점들을 미리 잡는다.
-    - 항상 얘기치 못한 상황에 대한 대처를 해야한다.
-  - product가 없는거니까 ?(Optional chaining) 혹은 &&(short circuit)을써서 undefined일경우 crash되지않게만 하는 방법도 있을수있다.
-    - 만약 product가 의도적으로 없는거면 사용해도 좋지만
-    - 그게 아니라면 서버에서 데이터를 잘못보내준건데 알방법이 없다.
-  - 그럼 웹싸이트가 crash하게 둬야하나?
-    - ErrorBoundary라는걸 사용해서 runtime 에러가 낫을때 ui에 그부분만 에러 메세지를 띄울수도있다.
-      - 이건 나중에 하도록하자
-    - 또는 crash하면 개발자에게 노티가 가게 설정할수도있다
-      - 이것도 나중에 하자.
-  - 그럼 일단 ?로 임시 방어를 해놓고 다음 commit에서 서버를 고치도록 해보자.
-    러
+- 연결된 데이터 삭제시 해결방법 - 1
+
+  - 이부분은 "비지니스 로직"으로 앱을 만드는 사람이 기획하고 결정하는부분이다.
+  - 예를들어
+    - 1. product를 어디선가 사용하고 있으면 지우지 못하게 한다.
+      - 삭제전에 order데이터의 내가 지울려고하는 product의 id를 검색해서 있으면 지우지 못하게한다.
+        - 번거롭지만 가능은하다.
+      - 지금 우리가 사용하는 lowdb에서는 db가 연관되(related)데이터들의 관계에 대해서 잘모른다.
+        - 프로그래어인 우리가 그부분을 인지하고 프로그램을 만들뿐이다.
+        - 만약 mysql이나 postgresql을 사용하면 이부분을 더 쉽게 할수있다.
+          - rdb라는 이름에서 알수있듯이 Relational Database로 관계에 대해서 인지하는 db다.
+    - 2. product가 삭제가 가능하게 하고
+      - frontend에서 방어적으로 코딩을 한다.
+      - 이전 commit에서 처럼 ?.을 사용해서 방어적으로 코딩할수있다.
+      - product는 optional data인거다.
+      - api spec에서도 이것을 명시해야할것이다.
+  - 여기서는 일단 server에서 product를 지울려고 할때 http error code를 client에게 보내줄거다.
+
+    - 지금 database는 데이터가 꼬여있는 상태이므로 깨끗한 data를 제공해주겠다.
+      - db.clean.json 파일에 있는 데이터를 db.json으로 옮겨서 코드를 작성하자.
+    - products의 delete 부분의 서버코드를 고쳐보자.
+    - 테스트시 console에서 409(400)에러가 뜨면 정상이다.
+
+  - 다음 commit 에서는 이 error를 핸들링해보자.

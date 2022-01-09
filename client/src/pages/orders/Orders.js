@@ -12,7 +12,6 @@ function Orders() {
     setStatus('loading');
     apiClient(`orders`)
       .then((data) => {
-        console.log(data);
         setOrders(data);
         setStatus('success');
       })

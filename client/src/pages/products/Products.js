@@ -9,18 +9,23 @@ function Products() {
   useEffect(() => {
     apiClient(`products`)
       .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const handleDelete = (id) => {
-    apiClient(`products/${id}`, { method: 'delete' }).then((data) => {
-      const removeProducts = products.filter(
-        (product) => product.id !== data.id
-      );
-      setProducts(removeProducts);
-    });
+    apiClient(`products/${id}`, { method: 'delete' })
+      .then((data) => {
+        const removeProducts = products.filter(
+          (product) => product.id !== data.id
+        );
+        setProducts(removeProducts);
+      })
+      .catch((err) => {
+        console.log('erroror', err);
+      });
   };
-
   return (
     <div>
       {products.map((product) => {
