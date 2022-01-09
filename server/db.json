@@ -17,12 +17,6 @@
       "name": "product3",
       "price": "30000",
       "year": "2023"
-    },
-    {
-      "id": 4,
-      "name": "product4",
-      "price": "40000",
-      "year": "2024"
     }
   ],
   "users": [

@@ -5,12 +5,13 @@ import { apiClient } from '../../utils/api-client';
 function Products() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     apiClient(`products`)
       .then((data) => setProducts(data))
       .catch((err) => {
-        console.log(err);
+        setError(err.message);
       });
   }, []);
 
@@ -20,14 +21,18 @@ function Products() {
         const removeProducts = products.filter(
           (product) => product.id !== data.id
         );
+        setError(null);
         setProducts(removeProducts);
       })
       .catch((err) => {
-        console.log('erroror', err);
+        console.log(err.message);
+        setError(err.message);
       });
   };
+
   return (
     <div>
+      {error ? <div style={{ color: 'red' }}>지울수없으</div> : null}
       {products.map((product) => {
         return (
           <div key={`${product.id}-${product.name}`}>
